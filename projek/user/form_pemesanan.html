@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Puteri</title>
+    <style>
+        /* Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nama-hotel h1 {
+            font-size: 2em;
+            margin: 0;
+            color: #ff6b6b;
+        }
+
+        .nama-hotel span {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        .nama-hotel p {
+            margin: 5px 0 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .logo img {
+            width: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation */
+        nav {
+            background: #ff6b6b;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        /* Form Section */
+        .form-pemesanan {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-pemesanan h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-pemesanan form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-pemesanan label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-pemesanan input, .form-pemesanan select, .form-pemesanan textarea {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-pemesanan button {
+            padding: 10px 20px;
+            background: #ff4757;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .form-pemesanan button:hover {
+            background: #ff6b6b;
+        }
+
+        .resume {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume h3 {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nama-hotel">
+            <h1>Hotel <span>Puteri</span></h1>
+            <h3>Halaman Konsumen</h3>
+            <p>Hotel Kami, Rumah Kedua Anda</p>
+        </div>
+        <div class="logo">
+            <img src="img/resort_pink.jpeg" alt="Hotel Logo">
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#form-pemesanan">Pesan Kamar</a></li>
+        </ul>
+    </nav>
+
+    <!-- Form Pemesanan -->
+    <div class="form-pemesanan" id="form-pemesanan">
+        <h2>Form Pemesanan Kamar</h2>
+        <form id="bookingForm">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="kamar">Jenis Kamar:</label>
+            <select id="kamar" name="kamar" required>
+                <option value="Kamar Standar">Kamar Standar</option>
+                <option value="Kamar Classic">Kamar Classic</option>
+                <option value="Kamar Premium">Kamar Premium</option>
+            </select>
+
+            <label for="tanggal">Tanggal Check-In:</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+
+            <label for="durasi">Durasi (malam):</label>
+            <input type="number" id="durasi" name="durasi" min="1" required>
+
+            <label for="pesan">Catatan Khusus:</label>
+            <textarea id="pesan" name="pesan" rows="4"></textarea>
+
+            <button type="button" onclick="tampilkanResume()">Pesan Sekarang</button>
+        </form>
+    </div>
+
+    <!-- Resume Pemesanan -->
+    <div id="resumeContainer" class="resume" style="display: none;">
+        <h3>Resume Pemesanan Anda:</h3>
+        <p><strong>Nama:</strong> <span id="resNama"></span></p>
+        <p><strong>Email:</strong> <span id="resEmail"></span></p>
+        <p><strong>Jenis Kamar:</strong> <span id="resKamar"></span></p>
+        <p><strong>Tanggal Check-In:</strong> <span id="resTanggal"></span></p>
+        <p><strong>Durasi:</strong> <span id="resDurasi"></span> malam</p>
+        <p><strong>Catatan Khusus:</strong> <span id="resPesan"></span></p>
+    </div>
+
+    <script>
+        function tampilkanResume() {
+            // Ambil nilai dari form
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const kamar = document.getElementById('kamar').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const durasi = document.getElementById('durasi').value;
+            const pesan = document.getElementById('pesan').value || 'Tidak ada catatan';
+
+            // Tampilkan resume
+            document.getElementById('resNama').textContent = nama;
+            document.getElementById('resEmail').textContent = email;
+            document.getElementById('resKamar').textContent = kamar;
+            document.getElementById('resTanggal').textContent = tanggal;
+            document.getElementById('resDurasi').textContent = durasi;
+            document.getElementById('resPesan').textContent = pesan;
+
+            // Munculkan container resume
+            document.getElementById('resumeContainer').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

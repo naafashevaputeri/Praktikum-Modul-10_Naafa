@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Puteri</title>
+    <style>
+        /* Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nama-hotel h1 {
+            font-size: 2em;
+            margin: 0;
+            color: #ff6b6b;
+        }
+
+        .nama-hotel span {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        .nama-hotel p {
+            margin: 5px 0 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .logo img {
+            width: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation */
+        nav {
+            background: #ff6b6b;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        /* Jenis Kamar */
+        .jenis-kamar, .pemesanan, .data-pemesanan {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .jenis-kamar img, .pemesanan img {
+            width: 80%;
+            max-width: 300px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .jenis-kamar p, .pemesanan p, .data-pemesanan p {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .jenis-kamar button, .pemesanan button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff4757;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .jenis-kamar button a, .pemesanan button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .jenis-kamar button:hover, .pemesanan button:hover {
+            background: #ff6b6b;
+        }
+
+        /* Fasilitas Section */
+        .fasilitas {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .fasilitas table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .fasilitas table th, .fasilitas table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .fasilitas table th {
+            background: #ff6b6b;
+            color: #fff;
+            text-align: center;
+        }
+
+        .fasilitas table ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .fasilitas table ul li {
+            margin: 5px 0;
+        }
+
+        /* Form Styling */
+        .pemesanan form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pemesanan label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .pemesanan input, .pemesanan select {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            margin: 5px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nama-hotel">
+            <h1>Hotel <span>Puteri</span></h1>
+            <h3>Halaman Admin</h3>
+            <p>Hotel Kami, Rumah Kedua Anda</p>
+        </div>
+        <div class="logo">
+            <img src="img/resort_pink.jpeg" alt="Hotel Logo">
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#jenis-kamar">Jenis Kamar</a></li>
+            <li><a href="#fasilitas">Fasilitas</a></li>
+            <li><a href="#pemesanan">Pemesanan</a></li>
+            <li><a href="#data-pemesanan">Data Pemesanan</a></li>
+        </ul>
+    </nav>
+
+    <!-- Jenis Kamar Section -->
+    <div class="jenis-kamar" id="jenis-kamar">
+        <h2>Jenis Kamar</h2>
+        <img src="img/hotel_1.jpg" alt="Kamar Standar">
+        <p>Hotel Standar</p>
+        <img src="img/hotel_3.jpg" alt="Kamar Classic">
+        <p>Hotel Classic</p>
+        <img src="img/hotel_9.jpg" alt="Kamar Premium">
+        <p>Hotel Premium</p>
+        <button><a href="Pesan.html">Pesan Hotel</a></button>
+    </div>
+
+    <!-- Fasilitas Section -->
+    <div class="fasilitas" id="fasilitas">
+        <h2>Fasilitas Kamar</h2>
+        <table>
+            <tr>
+                <th>Jenis Kamar</th>
+                <th>Fasilitas</th>
+            </tr>
+            <tr>
+                <td>Kamar Standar</td>
+                <td>
+                    <ul>
+                        <li>Breakfast</li>
+                        <li>Cemilan</li>
+                        <li>Ruangan ber-TV & ber-AC</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Kamar Classic</td>
+                <td>
+                    <ul>
+                        <li>Breakfast</li>
+                        <li>Cemilan</li>
+                        <li>Ruangan ber-TV & ber-AC</li>
+                        <li>Akses ke kolam renang (08.00 s.d 15.00)</li>
+                        <li>Makan Malam</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Kamar Premium</td>
+                <td>
+                    <ul>
+                        <li>Breakfast</li>
+                        <li>Cemilan</li>
+                        <li>Ruangan ber-TV & ber-AC</li>
+                        <li>Makan Siang</li>
+                        <li>Akses kolam renang (bebas)</li>
+                        <li>Makan Malam</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Pemesanan Section -->
+    <div class="pemesanan" id="pemesanan">
+        <h2>Pemesanan Kamar</h2>
+        <p>Isi form di bawah ini untuk melakukan pemesanan:</p>
+        <form action="proses_pemesanan.php" method="POST">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telepon">Telepon:</label>
+            <input type="tel" id="telepon" name="telepon" required>
+
+            <label for="jenis_kamar">Jenis Kamar:</label>
+            <select id="jenis_kamar" name="jenis_kamar" required>
+                <option value="standar">Kamar Standar</option>
+                <option value="classic">Kamar Classic</option>
+                <option value="premium">Kamar Premium</option>
+            </select>
+
+            <button type="submit">Kirim Pemesanan</button>
+        </form>
+    </div>
+
+    <!-- Data Pemesanan Section -->
+    <div class="data-pemesanan" id="data-pemesanan">
+        <h2>Data Pemesanan Anda</h2>
+        <p>Berikut adalah ringkasan pemesanan Anda:</p>
+        <p><strong>Nama:</strong> <span id="nama-pemesan"></span></p>
+        <p><strong>Email:</strong> <span id="email-pemesan"></span></p>
+        <p><strong>Telepon:</strong> <span id="telepon-pemesan"></span></p>
+        <p><strong>Jenis Kamar:</strong> <span id="jenis-kamar-pemesan"></span></p>
+    </div>
+
+    <script>
+        // Simulasi pengisian data pemesanan
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form
+
+            // Ambil data dari form
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const telepon = document.getElementById('telepon').value;
+            const jenisKamar = document.getElementById('jenis_kamar').value;
+
+            // Tampilkan data pemesanan
+            document.getElementById('nama-pemesan').textContent = nama;
+            document.getElementById('email-pemesan').textContent = email;
+            document.getElementById('telepon-pemesan').textContent = telepon;
+            document.getElementById('jenis-kamar-pemesan').textContent = jenisKamar;
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
